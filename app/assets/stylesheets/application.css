@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ header {
+   display :flex
+ }
+
+header > h1 {
+  color: blue;
+  float: left;
+}
+
+
+li {
+  float: right;
+  align-self: flex-end;
+  list-style-type: none;
+
+}

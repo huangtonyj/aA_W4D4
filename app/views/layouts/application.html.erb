@@ -12,37 +12,47 @@
   <body>
     <header>
       <h1>Music App</h1>
+      <ul>
       <% if logged_in? %>
-
-        <form action=" <%= session_url %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input
-            type="hidden"
-            name="authenticity_token"
-            value= "<%= form_authenticity_token %>"
-          >
-          <input type="submit" name="" value="Log out">
-        </form>
+        <li>
+          <form action=" <%= session_url %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input
+              type="hidden"
+              name="authenticity_token"
+              value= "<%= form_authenticity_token %>"
+            >
+            <input type="submit" name="" value="Log out">
+          </form>
+        </li>
       <% else %>
-        <form action=" <%= new_session_url %>" method="get">
-          <input
-            type="hidden"
-            name="authenticity_token"
-            value= "<%= form_authenticity_token %>"
-          >
-          <input type="submit" name="" value="Log in">
-        </form>
-
-        <form action=" <%= new_user_url %>" method="get">
-          <input
-            type="hidden"
-            name="authenticity_token"
-            value= "<%= form_authenticity_token %>"
-          >
-          <input type="submit" name="" value="Sign Up">
-        </form>
+        <li>
+          <form action=" <%= new_session_url %>" method="get">
+            <input
+              type="hidden"
+              name="authenticity_token"
+              value= "<%= form_authenticity_token %>"
+            >
+            <input type="submit" name="" value="Log in">
+          </form>
+        </li>
+        <li>
+          <form action=" <%= new_user_url %>" method="get">
+            <input
+              type="hidden"
+              name="authenticity_token"
+              value= "<%= form_authenticity_token %>"
+            >
+            <input type="submit" name="" value="Sign Up">
+          </form>
+        </li>
       <% end %>
+      </ul>
     </header>
+
+    <div>
     <%= yield %>
+    </div>
+
   </body>
 </html>
