@@ -1,0 +1,24 @@
+<h2>You be dropping Albums...</h2>
+
+<form action=" <%= albums_url %>" method="post">
+  <input
+  type="hidden"
+  name="authenticity_token"
+  value=" <%= form_authenticity_token %>">
+
+  <label>Album Title:
+    <input type="text" name="album[title]" value="">
+  </label>
+
+  <label>Year Dropping:
+    <input type="text" name="album[year]" value="">
+  </label><br> <br>
+
+  <input type="radio" name="album[live]" value="true"> Live Beats<br>
+  <input type="radio" name="album[live]" value="false"> Studio Recording <br><br>
+
+  <input type="submit" value="Drop this Album!">
+
+  <input type="hidden" name="album[band_id]" value=" <%= @band_id %>">
+
+</form>
